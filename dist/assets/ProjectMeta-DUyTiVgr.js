@@ -1,0 +1,1 @@
+import{j as s}from"./index-CQ7FU877.js";function r({project:a}){return s.jsxs("div",{className:"project-meta",children:[s.jsx("span",{className:"t-micro",children:a.category}),s.jsx("span",{className:"t-micro muted",children:a.location}),s.jsx("span",{className:"t-micro muted",children:a.year})]})}export{r as P};

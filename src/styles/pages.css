@@ -1,0 +1,220 @@
+/* ════════════════════════════════════════════════════════
+   INTERIORA — page layer
+   ════════════════════════════════════════════════════════ */
+
+/* ── Chapter overlay inside pinned scenes ───────────── */
+.chapter-overlay {
+  display: grid;
+  gap: var(--space-md);
+  max-width: min(920px, 90vw);
+}
+.chapter-overlay__title {
+  text-wrap: balance;
+}
+/* Editorial signature: the final display line is set in italic */
+.chapter-overlay__title .ah__line:last-child .ah__inner {
+  font-style: italic;
+  color: var(--color-accent-soft);
+}
+.chapter-overlay__lead {
+  max-width: 44ch;
+  color: var(--color-cream-soft);
+}
+.chapter-overlay__actions { margin-top: var(--space-sm); }
+.chapter-overlay__hint { color: rgba(242, 235, 224, 0.55); }
+
+/* Gallery label: top-left beneath the nav, clear of the bottom-anchored
+   headline block so the two never overlap. Hidden on small screens. */
+.scene-state-caption {
+  position: absolute;
+  top: calc(var(--nav-h) + 1.25rem);
+  left: clamp(1.5rem, 6vw, 6.5rem);
+  max-width: 36ch;
+  color: rgba(242, 235, 224, 0.78);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Commercial blueprint overlay ───────────────────── */
+.blueprint {
+  position: absolute;
+  right: clamp(1.5rem, 8vw, 9rem);
+  top: 50%;
+  transform: translateY(-58%);
+  width: clamp(240px, 32vw, 480px);
+  color: var(--color-sand);
+  pointer-events: none;
+  filter: drop-shadow(0 0 18px rgba(222, 201, 184, 0.12));
+}
+.blueprint__marks { font-family: var(--font-body); font-size: 8px; letter-spacing: 0.22em; }
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gutter);
+  margin-top: var(--space-xl);
+}
+.category {
+  border-top: 1px solid var(--color-line-strong);
+  padding-top: var(--space-sm);
+  display: grid;
+  gap: var(--space-sm);
+  align-content: start;
+}
+.category__media {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.category__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-snap);
+}
+.category:hover .category__media img { transform: scale(1.1); }
+.category__body { display: grid; gap: 0.5rem; }
+
+/* ── Home: chapter index rows ───────────────────────── */
+.chapters__head {
+  display: grid;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+.chapters { margin-top: 0; }
+.chapter-row { border-top: 1px solid var(--color-line); }
+.chapter-row:last-child { border-bottom: 1px solid var(--color-line); }
+.chapter-row__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 2.5rem;
+  align-items: center;
+  gap: var(--space-md);
+  padding-block: clamp(1.4rem, 3vw, 2.4rem);
+  transition: padding-left var(--dur-med) var(--ease-snap);
+}
+.chapter-row__link:hover { padding-left: 1.2rem; }
+.chapter-row__title { transition: color var(--dur-fast); }
+.chapter-row__link:hover .chapter-row__title { color: var(--color-accent-soft); }
+.chapter-row__line {
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 100%; height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-med) var(--ease-snap);
+}
+.chapter-row__link:hover .chapter-row__line { transform: scaleX(1); }
+.chapter-row__arrow { justify-self: end; transition: transform var(--dur-med) var(--ease-snap); }
+.chapter-row__link:hover .chapter-row__arrow { transform: translateX(8px); }
+
+/* ── Stats ──────────────────────────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+  margin-top: var(--space-md);
+  border-top: 1px solid var(--color-line-dark);
+  padding-top: var(--space-md);
+}
+.stat { display: grid; gap: 0.4rem; }
+.stat .t-micro { color: var(--color-muted-dark); }
+
+/* ── Process spec table ─────────────────────────────── */
+.spec-table { display: grid; margin-top: var(--space-xl); }
+.spec-row {
+  display: grid;
+  grid-template-columns: 4rem 1fr 1fr auto;
+  gap: var(--space-md);
+  align-items: baseline;
+  padding-block: 1.3rem;
+  border-top: 1px solid var(--color-line);
+}
+.spec-row:last-child { border-bottom: 1px solid var(--color-line); }
+.spec-row__index { color: var(--color-accent-soft); font-variant-numeric: tabular-nums; }
+.spec-row__duration { color: var(--color-muted); }
+.spec-row__deliverables { color: var(--color-muted); }
+
+.process-spec {
+  position: absolute;
+  left: clamp(1.5rem, 6vw, 6.5rem);
+  bottom: clamp(5.5rem, 12vh, 8.5rem);
+  display: grid;
+  gap: 0.6rem;
+  pointer-events: none;
+}
+.process-spec__stage { color: var(--color-accent-soft); }
+.process-spec__progress {
+  width: clamp(140px, 16vw, 220px);
+  height: 1px;
+  background: var(--color-line);
+  overflow: hidden;
+}
+.process-spec__progress i {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  transform-origin: left;
+}
+.process-spec__note { color: rgba(242, 235, 224, 0.7); max-width: 36ch; }
+
+/* ── Portfolio gallery ──────────────────────────────── */
+.gallery { display: grid; gap: clamp(4rem, 10vh, 8rem); margin-top: var(--space-xl); }
+.gallery-item {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--gutter);
+  align-items: end;
+}
+.gallery-item__media {
+  grid-column: span 8;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+.gallery-item--reverse .gallery-item__media { order: 2; }
+.gallery-item__media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+.gallery-item__sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(245, 237, 225, 0.12) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 1s var(--ease-snap);
+  pointer-events: none;
+}
+.gallery-item:hover .gallery-item__sheen { transform: translateX(120%); }
+.gallery-item__facts {
+  grid-column: span 4;
+  display: grid;
+  gap: 0.8rem;
+  padding-bottom: 0.5rem;
+}
+.gallery-item--reverse .gallery-item__facts { order: 1; text-align: right; justify-items: end; }
+.gallery-item__cta { color: var(--color-accent-soft); }
+
+.contact__details {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: var(--space-lg);
+}
+
+@media (max-width: 1080px) {
+  .category-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item__media, .gallery-item__facts { grid-column: span 12; }
+  .gallery-item--reverse .gallery-item__media { order: 0; }
+  .gallery-item--reverse .gallery-item__facts { order: 1; text-align: left; justify-items: start; }
+  .blueprint { opacity: 0.35 !important; }
+}
+@media (max-width: 720px) {
+
+
+  .form__row { grid-template-columns: 1fr; }
+  .spec-row { grid-template-columns: 3rem 1fr; }
+  .spec-row__deliverables, .spec-row__duration { grid-column: 2; }
+  .chapter-row__link { grid-template-columns: 1fr 2rem; }
+  .chapter-row__meta { display: none; }
+  .scene-state-caption { display: none; }
+}

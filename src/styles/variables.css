@@ -1,0 +1,76 @@
+:root {
+  /* ── Colour: warm light architecture palette ───────── */
+  --color-bg: #f6f0e7;
+  --color-bg-soft: #f0e7dc;
+  --color-bg-elev: #fffdf9;
+  --color-cream: #f9f3eb;
+  --color-cream-soft: #efe4d4;
+  --color-ink: #1d1a17;
+  --color-ink-dark: #201a14;
+  --color-muted: #6f625a;
+  --color-muted-dark: #544a40;
+  --color-accent: #9d663d;
+  --color-accent-soft: #bf8b63;
+  --color-sand: #d7b998;
+  --color-line: rgba(29, 26, 23, 0.12);
+  --color-line-strong: rgba(29, 26, 23, 0.2);
+  --color-line-dark: rgba(29, 26, 23, 0.12);
+  --color-shadow: rgba(32, 26, 20, 0.08);
+
+  /* ── Type ───────────────────────────────────────────── */
+  --font-display: 'Bodoni Moda', 'Times New Roman', Georgia, serif;
+  --font-body: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+
+  /* ── Space (8px rhythm) ─────────────────────────────── */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6.5rem;
+  --space-3xl: 10rem;
+
+  /* ── Layout ─────────────────────────────────────────── */
+  --page-pad: clamp(1.25rem, 5vw, 5.5rem);
+  --content-max: 1560px;
+  --nav-h: 84px;
+  --gutter: clamp(1rem, 2vw, 2rem);
+
+  /* ── Radius (architectural: near-square) ────────────── */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+
+  /* ── Motion ─────────────────────────────────────────── */
+  --ease-cinematic: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-snap: cubic-bezier(0.86, 0, 0.07, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 220ms;
+  --dur-med: 520ms;
+  --dur-slow: 900ms;
+
+  /* ── Texture: fine film grain ───────────────────────── */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+
+/* ── Theme overrides ─────────────────────────────────── */
+:root[data-theme="dark"] {
+  --color-bg: #151311;
+  --color-bg-soft: #1d1916;
+  --color-bg-elev: #211d19;
+  --color-cream: #24201c;
+  --color-cream-soft: #332a23;
+  --color-ink: #f2ece3;
+  --color-ink-dark: #f7f1e8;
+  --color-muted: #b9aa9b;
+  --color-muted-dark: #cbbcae;
+  --color-accent: #c9976d;
+  --color-accent-soft: #d5ab86;
+  --color-sand: #80634c;
+  --color-line: rgba(242, 236, 227, 0.13);
+  --color-line-strong: rgba(242, 236, 227, 0.24);
+  --color-line-dark: rgba(242, 236, 227, 0.14);
+  --color-shadow: rgba(0, 0, 0, 0.28);
+}

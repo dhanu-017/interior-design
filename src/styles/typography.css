@@ -1,0 +1,125 @@
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.5rem, 10vw, 9.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+.t-h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 6vw, 6rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 4vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+.t-h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.2vw, 2.15rem);
+  line-height: 1.24;
+}
+.t-lead {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.35vw, 1.3rem);
+  line-height: 1.65;
+}
+.t-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.t-meta {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.t-micro {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* Italic serif accent — the editorial signature of the system */
+.t-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 2.4rem;
+  height: 1px;
+  background: var(--color-accent);
+  flex: none;
+}
+
+.lead { max-width: 46ch; }
+.muted { color: var(--color-muted); }
+
+/* Animated heading: masked line reveal driven by scroll progress */
+.ah { display: block; }
+.ah__line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.04em; }
+.ah__inner { display: block; will-change: transform, opacity; }
+
+/* Animated text: per-word reveal (React Bits "SplitText / BlurText" pattern) */
+.at { display: block; }
+.at__word {
+  display: inline-block;
+  white-space: pre;
+  will-change: transform, opacity, filter;
+}
+
+/* Rolling hover link: duplicate label slides up (award-site nav pattern) */
+.roll {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.roll__a,
+.roll__b {
+  display: block;
+  transition: transform 0.45s var(--ease-snap);
+}
+.roll__b {
+  position: absolute;
+  inset: 0;
+  transform: translateY(105%);
+  color: var(--color-accent-soft);
+}
+a:hover > .roll .roll__a,
+a:focus-visible > .roll .roll__a,
+.roll-host:hover .roll__a,
+.roll-host:focus-visible .roll__a { transform: translateY(-105%); }
+a:hover > .roll .roll__b,
+a:focus-visible > .roll .roll__b,
+.roll-host:hover .roll__b,
+.roll-host:focus-visible .roll__b { transform: translateY(0); }
